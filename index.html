@@ -3,11 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
-    <link rel="stylesheet" href="/main.css">
-    <script src="/main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
+    <title>Book Tracker</title>
 </head>
 <body>
-    
+    <header>
+        <div class="header-logo">
+            <a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M256 160c16-63.16 76.43-95.41 208-96a15.94 15.94 0 0116 16v288a16 16 0 01-16 16c-128 0-177.45 25.81-208 64-30.37-38-80-64-208-64-9.88 0-16-8.05-16-17.93V80a15.94 15.94 0 0116-16c131.57.59 192 32.84 208 96zM256 160v288" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+            </a>
+            <h1><a href="index.html">Book Tracker</a></h1>
+        </div>
+        <div class="header-buttons-container">
+            <button class="header-button" id="createEntry">+</button>
+            <button class="header-button" id="logIn">Log In</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="library-container">
+            <div class="book-item">
+                <h3>Dune</h3>
+                <p>by: Frank Herbert</p>
+                <p>Pages: 896</p>
+                <p>Not Read Yet</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Made by Ergo Oll for The Odin Project 2023</p>
+        <a href="https://github.com/ergooll/odin-dashboard.git">Source Code</a>
+    </footer>
 </body>
 </html>
