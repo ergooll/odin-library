@@ -1,6 +1,13 @@
 let myLibrary = [
     new Book('Dune', 'Frank Herbert', 896, false),
-    new Book('Red Mars', 'Kim Stanley Robinson', 501, true)
+    new Book('Red Mars', 'Kim Stanley Robinson', 501, true),
+    new Book('The Fellowship of the Ring', 'J. R. R. Tolkien', 423, false),
+    new Book('The Two Towers', 'J. R. R. Tolkien', 352, false),
+    new Book('The Return of the King', 'J. R. R. Tolkien', 416, false),
+    new Book('The War of the Worlds', 'H.G. Wells', 287, false),
+    new Book('Casino Royale', 'Ian Fleming', 213, false),
+    // new Book('', '', , false),
+    // new Book('', '', , false)
 ];
 
 const libraryContainer = document.querySelector('.library-container');
