@@ -20,7 +20,7 @@
             <h1><a href="index.html">Book Tracker</a></h1>
         </div>
         <div class="header-buttons-container">
-            <button class="header-button" id="createEntry">+</button>
+            <button class="header-button" id="createEntry" onclick="showPopup()">+</button>
             <button class="header-button" id="logIn">Log In</button>
         </div>
     </header>
@@ -50,8 +50,8 @@
                 <input type="checkbox" id="popupRead">
             </div>
             <div class="popup-buttons">
-                <button class="popup-add" id="popupAddButton">Save</button>
-                <button class="popup-cancel" id="popupCancelButton">Cancel</button>
+                <button class="popup-add" id="popupAddButton" onclick="addBookToLibrary()">Save</button>
+                <button class="popup-cancel" id="popupCancelButton" onclick="hidePopup()">Cancel</button>
             </div>
         </div>
     </div>

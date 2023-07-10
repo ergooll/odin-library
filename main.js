@@ -37,10 +37,6 @@ Book.prototype.info = function() {
     `
 }
 
-function addBookToLibrary() {
-    
-}
-
 function drawLibrary() {
     myLibrary.forEach(obj => {
         const bookItem = document.createElement('div');
@@ -54,14 +50,17 @@ drawLibrary();
 
 // Popup window section
 
-const cancelButton = document.querySelector('#popupCancelButton');
-const popupWindow = document.querySelector('.popup-container');
-const createButton = document.querySelector('#createEntry');
+const popupContainer = document.querySelector('.popup-container');
+const popupWindow = document.querySelector('.popup-window');
 
-cancelButton.addEventListener('click', (e) => {
-    popupWindow.style.display = 'none';
-});
+function showPopup() {
+    popupContainer.style.display = 'block';
+}
 
-createButton.addEventListener('click', (e) => {
-    popupWindow.style.display = 'block';
-})
+function hidePopup() {
+    popupContainer.style.display = 'none';
+}
+
+function addBookToLibrary() {
+    
+}
