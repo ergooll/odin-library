@@ -16,6 +16,19 @@ body {
     background-position: center;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
 /* Header section */
 
 header {
@@ -109,6 +122,85 @@ header > * {
     text-align: center;
 }
 
+/* Popup section */
+
+.popup-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #2b2b2b62;
+    display: none;
+}
+
+.popup-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-color);
+    background-color: #e7e7e7e0;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.popup-container input {
+    margin: 0;
+    padding: 4px;
+    background-color: var(--text-color-light);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    display: block;
+    margin-top: 0.2rem;
+    box-shadow: 3px 3px 4px rgba(42, 23, 13, 0.3);
+}
+
+.popup-container input:focus {
+    outline: 2px solid var(--accent-color-hover);
+}
+
+/* .popup-container input:focus:invalid {
+    outline: 2px solid #d54646;
+    transition: 1s;
+}
+
+.popup-container input:focus:valid {
+    outline: 2px solid #7ccb43;
+    transition: 0.2s;
+} */
+
+.popup-container label {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+#popup-input-checkbox * {
+    display: inline;
+}
+
+.popup-buttons button {
+    margin-left: 0.5rem;
+    padding: 8px 16px;
+    color: var(--text-color-light);
+    font-weight: 600;
+    background-color: var(--accent-color);
+    border: 0;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.popup-buttons button:hover {
+    background-color: var(--accent-color-hover);
+    cursor: pointer;
+}
+
 /* Footer section */
 
 footer {
@@ -132,3 +224,5 @@ footer a:hover {
     padding: 3px 6px;
     border-radius: 8px;
 }
+
+/* Classes for javascript */

@@ -5,9 +5,7 @@ let myLibrary = [
     new Book('The Two Towers', 'J. R. R. Tolkien', 352, false),
     new Book('The Return of the King', 'J. R. R. Tolkien', 416, false),
     new Book('The War of the Worlds', 'H.G. Wells', 287, false),
-    new Book('Casino Royale', 'Ian Fleming', 213, false),
-    // new Book('', '', , false),
-    // new Book('', '', , false)
+    new Book('Casino Royale', 'Ian Fleming', 213, false)
 ];
 
 const libraryContainer = document.querySelector('.library-container');
@@ -53,3 +51,17 @@ function drawLibrary() {
 }
 
 drawLibrary();
+
+// Popup window section
+
+const cancelButton = document.querySelector('#popupCancelButton');
+const popupWindow = document.querySelector('.popup-container');
+const createButton = document.querySelector('#createEntry');
+
+cancelButton.addEventListener('click', (e) => {
+    popupWindow.style.display = 'none';
+});
+
+createButton.addEventListener('click', (e) => {
+    popupWindow.style.display = 'block';
+})
