@@ -225,4 +225,72 @@ footer a:hover {
     border-radius: 8px;
 }
 
-/* Classes for javascript */
+/* checkbox styling */
+
+.popup-checkbox {
+display: block;
+position: relative;
+padding-left: 35px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.popup-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 24px;
+width: 24px;
+background-color: #e7e7e7e0;
+border: 1px solid var(--accent-color-hover);
+border-radius: 8px;
+}
+
+/* On mouse-over, add a grey background color */
+.popup-checkbox:hover input ~ .checkmark {
+background-color: #5928a749;
+}
+
+/* When the checkbox is checked, add a blue background */
+.popup-checkbox input:checked ~ .checkmark {
+background-color: var(--accent-color);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the checkmark when checked */
+.popup-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the checkmark/indicator */
+.popup-checkbox .checkmark:after {
+left: 9px;
+top: 5px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 3px 3px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+} 
