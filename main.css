@@ -227,6 +227,10 @@ footer a:hover {
 
 /* checkbox styling */
 
+#popup-input-checkbox {
+    margin-top: 8px;
+}
+
 .popup-checkbox {
 display: block;
 position: relative;
@@ -251,7 +255,7 @@ width: 0;
 /* Create a custom checkbox */
 .checkmark {
 position: absolute;
-top: 0;
+top: -5px;
 left: 0;
 height: 24px;
 width: 24px;
