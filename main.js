@@ -52,13 +52,44 @@ drawLibrary();
 
 const popupContainer = document.querySelector('.popup-container');
 const popupWindow = document.querySelector('.popup-window');
+const popupButtons = document.querySelectorAll('.popup-button');
+
+
+let mouseOnPopupWindow = false;
+let mouseOnPopupButtons = false;
+
+popupWindow.addEventListener('mouseenter', (e) => {
+    mouseOnPopupWindow = true;
+});
+
+popupWindow.addEventListener('mouseleave', (e) => {
+    mouseOnPopupWindow = false;
+});
+
+popupButtons.forEach(btn => {
+    btn.addEventListener('mouseenter', (e) => {
+        mouseOnPopupButtons = true;
+    });
+})
+
+popupButtons.forEach(btn => {
+    btn.addEventListener('mouseleave', (e) => {
+        mouseOnPopupButtons = false;
+    });
+})
+
+popupContainer.addEventListener('click', (e) => {
+    hidePopup();
+});
 
 function showPopup() {
     popupContainer.style.display = 'block';
 }
 
 function hidePopup() {
-    popupContainer.style.display = 'none';
+    if (mouseOnPopupWindow == false | mouseOnPopupButtons == true) {
+        popupContainer.style.display = 'none';
+    }
 }
 
 function addBookToLibrary() {
