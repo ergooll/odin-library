@@ -34,7 +34,7 @@ Book.prototype.info = function() {
         <p>by: ${this.author}</p>
         <p>Pages: ${this.pages}</p>
         <p style="color:${readColor}">${readText}</p>
-        <button id="markReadButton">Mark as read</button>
+        <button class="mark-read-button" id="markReadButton">Mark as read</button>
     `
 }
 
@@ -51,6 +51,39 @@ function addBookToLibrary() {
 }
 
 drawLibrary();
+
+// Mark as read button functionality
+
+const markReadButton = document.querySelectorAll('.mark-read-button');
+
+markReadButton.forEach((btn, id) => {
+    btn.addEventListener('click', (e) => {
+        markBookRead(id);
+    });
+});
+
+function markBookRead(id) {
+    let bookID = myLibrary[id];
+    if (bookID.read == false) {
+        bookID.read = true;
+        console.log(bookID.title);
+        console.log(bookID.read);
+        myLibrary.forEach(obj => {
+            let bookItem = document.querySelector('.book-item');
+            obj = bookID;
+            bookItem.innerHTML = obj.info();
+        });
+    } else {
+        bookID.read = false;
+        console.log(bookID.title);
+        console.log(bookID.read);
+        myLibrary.forEach(obj => {
+            let bookItem = document.querySelector('.book-item');
+            obj = bookID;
+            bookItem.innerHTML = obj.info();
+        });
+    }
+}
 
 // Popup window section
 
