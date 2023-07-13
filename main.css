@@ -76,7 +76,7 @@ header > * {
     color: var(--accent-color-hover);
 }
 
-.header-buttons-container button {
+ button {
     margin-left: 0.5rem;
     padding: 8px 16px;
     color: var(--text-color-light);
@@ -87,7 +87,7 @@ header > * {
     transition: background-color 0.3s ease;
 }
 
-.header-buttons-container button:hover {
+button:hover {
     background-color: var(--accent-color-hover);
     cursor: pointer;
 }
@@ -114,12 +114,17 @@ header > * {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 110px;
+    gap: 0.4rem;
+    height: 180px;
 }
 
 .book-item > * {
     margin: 0;
     text-align: center;
+}
+
+.book-item > button {
+    font-size: 0.8rem;
 }
 
 /* Popup section */
@@ -144,6 +149,9 @@ header > * {
     border: 1px solid var(--accent-color);
     border-radius: 8px;
     padding: 2rem;
+}
+
+.popup-window form {
     display: flex;
     flex-direction: column;
     align-items: center;

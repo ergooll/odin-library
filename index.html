@@ -33,29 +33,31 @@
     <div class="popup-container">
         <div class="popup-window">
             <h2>Add a book to your library</h2>
-            <div class="popup-input-container">
-                <label for="popupTitle">Title</label>
-                <input type="text" name="popupTitle" id="popupTitle">
-            </div>
-            <div class="popup-input-container">
-                <label for="popupAuthor">Author</label>
-                <input type="text" name="popupAuthor" id="popupAuthor">
-            </div>
-            <div class="popup-input-container">
-                <label for="popupPages">Page count</label>
-                <input type="number" name="popupPages" id="popupPages">
-            </div>
-            <div class="popup-input-container" id="popup-input-checkbox">
-                <label for="popupRead" class="popup-checkbox">
-                    Have you read it yet?
-                    <input type="checkbox" name="popupRead" id="popupRead">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="popup-buttons">
-                <button class="popup-button" id="popupAddButton" onclick="addBookToLibrary()">Save</button>
-                <button class="popup-button" id="popupCancelButton">Cancel</button>
-            </div>
+            <form action="">
+                <div class="popup-input-container">
+                    <label for="popupTitle">Title</label>
+                    <input type="text" name="popupTitle" id="popupTitle">
+                </div>
+                <div class="popup-input-container">
+                    <label for="popupAuthor">Author</label>
+                    <input type="text" name="popupAuthor" id="popupAuthor">
+                </div>
+                <div class="popup-input-container">
+                    <label for="popupPages">Page count</label>
+                    <input type="number" name="popupPages" id="popupPages">
+                </div>
+                <div class="popup-input-container" id="popup-input-checkbox">
+                    <label for="popupRead" class="popup-checkbox">
+                        Have you read it yet?
+                        <input type="checkbox" name="popupRead" id="popupRead">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="popup-buttons">
+                    <button class="popup-button" id="popupAddButton" type="submit">Save</button>
+                    <button class="popup-button" id="popupCancelButton">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 

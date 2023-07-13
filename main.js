@@ -34,6 +34,7 @@ Book.prototype.info = function() {
         <p>by: ${this.author}</p>
         <p>Pages: ${this.pages}</p>
         <p style="color:${readColor}">${readText}</p>
+        <button id="markReadButton">Mark as read</button>
     `
 }
 
@@ -44,6 +45,9 @@ function drawLibrary() {
         bookItem.innerHTML = obj.info();
         libraryContainer.appendChild(bookItem);
     });
+}
+
+function addBookToLibrary() {
 }
 
 drawLibrary();
@@ -90,8 +94,4 @@ function hidePopup() {
     if (mouseOnPopupWindow == false | mouseOnPopupButtons == true) {
         popupContainer.style.display = 'none';
     }
-}
-
-function addBookToLibrary() {
-    
 }
