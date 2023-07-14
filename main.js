@@ -33,7 +33,7 @@ Book.prototype.info = function() {
         <h3>${this.title}</h3>
         <p>by: ${this.author}</p>
         <p>Pages: ${this.pages}</p>
-        <p style="color:${readColor}">${readText}</p>
+        <p class="book-read" style="color:${readColor}">${readText}</p>
         <button class="mark-read-button" id="markReadButton">Mark as read</button>
     `
 }
@@ -55,6 +55,7 @@ drawLibrary();
 // Mark as read button functionality
 
 const markReadButton = document.querySelectorAll('.mark-read-button');
+const bookItemRead = document.querySelectorAll('.book-read');
 
 markReadButton.forEach((btn, id) => {
     btn.addEventListener('click', (e) => {
@@ -63,25 +64,16 @@ markReadButton.forEach((btn, id) => {
 });
 
 function markBookRead(id) {
+    let bookRead = bookItemRead[id];
     let bookID = myLibrary[id];
     if (bookID.read == false) {
         bookID.read = true;
-        console.log(bookID.title);
-        console.log(bookID.read);
-        myLibrary.forEach(obj => {
-            let bookItem = document.querySelector('.book-item');
-            obj = bookID;
-            bookItem.innerHTML = obj.info();
-        });
+        bookRead.textContent = 'book has been read';
+        bookRead.style.color = '#5bc359';
     } else {
         bookID.read = false;
-        console.log(bookID.title);
-        console.log(bookID.read);
-        myLibrary.forEach(obj => {
-            let bookItem = document.querySelector('.book-item');
-            obj = bookID;
-            bookItem.innerHTML = obj.info();
-        });
+        bookRead.textContent = 'not read yet';
+        bookRead.style.color = '#f24b4b';
     }
 }
 
