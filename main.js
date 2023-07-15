@@ -81,10 +81,16 @@ function markBookRead(id) {
 
 const bookItemContainer = document.querySelectorAll('.book-item');
 
+function getColor(){ 
+    return "hsla(" + 360 * Math.random() + ',' +
+               (25 + 70 * Math.random()) + '%,' + 
+               (85 + 10 * Math.random()) + '%' + ',0.75)'
+}
+
 bookItemContainer.forEach(e => {
-    let randomColor = Math.floor(Math.random()*16777215).toString(16);
-    e.style.backgroundColor = '#' + randomColor + '50';
-    e.style.borderColor = '#' + randomColor + '50';
+    let color = getColor();
+    e.style.backgroundColor = color;
+    e.style.borderColor = color;
 });
 
 // Popup window section
