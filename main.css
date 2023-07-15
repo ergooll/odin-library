@@ -108,7 +108,7 @@ button:hover {
 .book-item {
     padding: 1rem 2rem;
     line-height: 1.5rem;
-    background-color: #d373341e;
+    /* background-color: #d373341e; */
     border: 1px solid var(--accent-color-secondary);
     border-radius: 8px;
     display: flex;

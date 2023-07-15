@@ -19,13 +19,13 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.info = function() {
-    let readText = 'not read yet';
+    let readText = 'Not read';
     let readColor = '#f24b4b';
     if (this.read == true) {
-        readText = 'book has been read'
+        readText = 'Read'
         readColor = '#5bc359';
     } else {
-        readText = 'not read yet'
+        readText = 'Not read'
         readColor = '#f24b4b';
     }
     // return `${this.title} by ${this.author}, ${this.pages} pages, ${readText}`;
@@ -68,14 +68,24 @@ function markBookRead(id) {
     let bookID = myLibrary[id];
     if (bookID.read == false) {
         bookID.read = true;
-        bookRead.textContent = 'book has been read';
+        bookRead.textContent = 'Read';
         bookRead.style.color = '#5bc359';
     } else {
         bookID.read = false;
-        bookRead.textContent = 'not read yet';
+        bookRead.textContent = 'Not read';
         bookRead.style.color = '#f24b4b';
     }
 }
+
+// Random color background
+
+const bookItemContainer = document.querySelectorAll('.book-item');
+
+bookItemContainer.forEach(e => {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    e.style.backgroundColor = '#' + randomColor + '50';
+    e.style.borderColor = '#' + randomColor + '50';
+});
 
 // Popup window section
 
