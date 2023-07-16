@@ -84,12 +84,13 @@ const bookItemContainer = document.querySelectorAll('.book-item');
 function getColor(){ 
     return "hsla(" + 360 * Math.random() + ',' +
                (25 + 70 * Math.random()) + '%,' + 
-               (85 + 10 * Math.random()) + '%' + ',0.75)'
+               (85 + 10 * Math.random()) + '%' + ')'
 }
 
 bookItemContainer.forEach(e => {
     let color = getColor();
-    e.style.backgroundColor = color;
+    let colorSeeThru = color.slice(0, -1) + ', 0.75)'
+    e.style.backgroundColor = colorSeeThru;
     e.style.borderColor = color;
 });
 
