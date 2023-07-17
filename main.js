@@ -47,10 +47,18 @@ function drawLibrary() {
     });
 }
 
+function drawNewBook() {
+    const bookItem = document.createElement('div');
+    bookItem.classList.add('book-item');
+    bookItem.innerHTML = myLibrary[myLibrary.length - 1].info();
+    libraryContainer.appendChild(bookItem);
+}
+
 const newBookForm = document.querySelector('#new-book-form');
 newBookForm.addEventListener('submit', function() {
     event.preventDefault();
     addBookToLibrary();
+    drawNewBook();
 });
 
 function addBookToLibrary() {
@@ -92,7 +100,7 @@ function markBookRead(id) {
 
 // Random color background
 
-const bookItemContainer = document.querySelectorAll('.book-item');
+let bookItemContainer = document.querySelectorAll('.book-item');
 
 function getColor(){ 
     return "hsla(" + 360 * Math.random() + ',' +
