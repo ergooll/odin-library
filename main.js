@@ -47,7 +47,20 @@ function drawLibrary() {
     });
 }
 
+const newBookForm = document.querySelector('#new-book-form');
+newBookForm.addEventListener('submit', function() {
+    event.preventDefault();
+    addBookToLibrary();
+});
+
 function addBookToLibrary() {
+    let addTitle = document.querySelector('#popupTitle').value;
+    let addAuthor = document.querySelector('#popupAuthor').value;
+    let addPages = document.querySelector('#popupPages').value;
+    let addRead = document.querySelector('#popupRead').checked;
+    let newBook = new Book(addTitle, addAuthor, addPages, addRead);
+    myLibrary.push(newBook);
+    console.log(newBook);
 }
 
 drawLibrary();
