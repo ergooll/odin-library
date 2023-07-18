@@ -158,3 +158,11 @@ function hidePopup() {
         popupContainer.style.display = 'none';
     }
 }
+
+//localStorage
+
+localStorage.setItem('library', JSON.stringify(myLibrary));
+
+let storedLibrary = JSON.parse(localStorage.getItem('library'));
+
+console.log(storedLibrary);
