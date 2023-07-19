@@ -34,7 +34,10 @@ Book.prototype.info = function() {
         <p>by: ${this.author}</p>
         <p>Pages: ${this.pages}</p>
         <p class="book-read" style="color:${readColor}">${readText}</p>
-        <button class="mark-read-button" id="markReadButton">Mark as read</button>
+        <div class="book-item-buttons">
+            <button class="mark-read-button" id="markReadButton">Mark as read</button>
+            <button class="delete-button">Delete Book</button>
+        </div>
     `
 }
 
@@ -86,7 +89,7 @@ markReadButton.forEach((btn, id) => {
 
 function markBookRead(id) {
     let bookRead = bookItemRead[id];
-    let bookID = myLibrary[id];
+    let bookID = storedLibrary[id];
     if (bookID.read == false) {
         bookID.read = true;
         bookRead.textContent = 'Read';
@@ -96,6 +99,22 @@ function markBookRead(id) {
         bookRead.textContent = 'Not read';
         bookRead.style.color = '#f24b4b';
     }
+}
+
+// Delete book button functionality
+
+const deleteBookButton = document.querySelectorAll('.delete-button');
+
+deleteBookButton.forEach((btn, id) => {
+    btn.addEventListener('click', (e) => {
+        deleteBook(id);
+    });
+});
+
+function deleteBook(id) {
+    let deleteBookID = bookItemContainer[id];
+    libraryContainer.removeChild(deleteBookID);
+    // deleteBookID.classList.remove('book-item');
 }
 
 // Random color background
@@ -164,5 +183,3 @@ function hidePopup() {
 localStorage.setItem('library', JSON.stringify(myLibrary));
 
 let storedLibrary = JSON.parse(localStorage.getItem('library'));
-
-console.log(storedLibrary);

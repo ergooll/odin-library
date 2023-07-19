@@ -124,8 +124,12 @@ button:hover {
     text-align: center;
 }
 
-.book-item > button {
-    font-size: 0.75rem;
+.book-item button {
+    font-size: 0.7rem;
+}
+
+.book-item-buttons {
+    display: flex;
 }
 
 /* Popup section */
