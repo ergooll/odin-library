@@ -22,6 +22,9 @@ function addBook(i) {
     let bookNode = document.createElement('div');
     bookNode.classList.add('book');
     bookNode.setAttribute('data-index', `${i}`);
+    let color = getColor();
+    bookNode.style.borderColor = color;
+    bookNode.style.backgroundColor = color.slice(0, -1) + ', 0.7';
 
     const title = document.getElementById('popupTitle').value;
     let titleNode = document.createElement('h3');
@@ -37,7 +40,7 @@ function addBook(i) {
 
     const read = document.getElementById("popupRead").value;
     let readNode = document.createElement("p");
-    if (this.read == "Yes") {
+    if (read == "Yes") {
         readText = 'Read'
         readColor = '#5bc359';
     } else {
@@ -99,6 +102,9 @@ function getBooks() {
         let bookNode = document.createElement("div");
         bookNode.classList.add("book");
         bookNode.setAttribute("data-index", `${i}`);
+        let color = getColor();
+        bookNode.style.borderColor = color;
+        bookNode.style.backgroundColor = color.slice(0, -1) + ', 0.7';
     
         const title = document.getElementById("popupTitle").value;
         let titleNode = document.createElement("h3");
@@ -211,3 +217,10 @@ form.addEventListener("submit", (e, i) => {
   e.preventDefault();
   addBook(i);
 });
+
+// Random background colors
+function getColor() { 
+    return "hsla(" + 360 * Math.random() + ',' +
+               (25 + 70 * Math.random()) + '%,' + 
+               (85 + 10 * Math.random()) + '%' + ')'
+}
