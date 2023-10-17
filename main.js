@@ -5,7 +5,9 @@ const closeButton = document.querySelector("#popupCancelButton");
 
 const popupContainer = document.querySelector('.popup-container');
 const popupWindow = document.querySelector('.popup-window');
-const popupButtons = document.querySelectorAll('.popup-button');
+const popupButtons = document.querySelectorAll('.popup-buttons');
+
+let books = JSON.parse(localStorage.getItem('books')) || [];
 
 class Book {
     constructor(title, author, pages, read) {
@@ -15,16 +17,6 @@ class Book {
         this.read = read;
     }
 }
-
-let books = [
-    new Book('Dune', 'Frank Herbert', 896, false),
-    new Book('Red Mars', 'Kim Stanley Robinson', 501, true),
-    new Book('The Fellowship of the Ring', 'J. R. R. Tolkien', 423, false),
-    new Book('The Two Towers', 'J. R. R. Tolkien', 352, false),
-    new Book('The Return of the King', 'J. R. R. Tolkien', 416, false),
-    new Book('The War of the Worlds', 'H.G. Wells', 287, false),
-    new Book('Casino Royale', 'Ian Fleming', 213, false)
-] || JSON.parse(localStorage.getItem('books'));
 
 function addBook(i) {
     let bookNode = document.createElement('div');
@@ -45,22 +37,25 @@ function addBook(i) {
 
     const read = document.getElementById("popupRead").value;
     let readNode = document.createElement("p");
-    if (book.read == true) {
+    if (book.read == "Yes") {
         readText = 'Read'
         readColor = '#5bc359';
     } else {
-        readText = 'Not read'
+        readText = 'Not Read'
         readColor = '#f24b4b';
     }
-    readNode.innerHTML = `${readText}`;
+    readNode.textContent = `${readText}`;
     readNode.style.color = `${readColor}`;
+  
+    let buttonsNode = document.createElement('div');
+    buttonsNode.classList = "book-buttons";
 
     let updateNode = document.createElement('button');
-    updateNode.classList = 'markAsRead';
-    updateNode.innerHTML = 'Mark As Read';
+    updateNode.classList = 'markReadButton';
+    updateNode.innerHTML = 'Update';
 
     let trashNode = document.createElement("button");
-    trashNode.classList = "deleteBook";
+    trashNode.classList = "deleteButton";
     trashNode.innerHTML = `Delete`;
 
     const book = new Book(title, author, pages, read);
@@ -70,20 +65,24 @@ function addBook(i) {
     bookNode.appendChild(authorNode);
     bookNode.appendChild(pageNode);
     bookNode.appendChild(readNode);
-    bookNode.appendChild(updateNode);
-    bookNode.appendChild(trashNode);
+    bookNode.appendChild(buttonsNode);
+    buttonsNode.appendChild(updateNode);
+    buttonsNode.appendChild(trashNode);
     libraryContainer.appendChild(bookNode);
+    form.reset();
 
     // update book status
     updateNode.addEventListener("click", () => {
-        if (readNode.innerHTML === "Read? No😢") {
-        readNode.innerHTML = "Read? Yes😃";
-        book.read = "Yes";
-        localStorage.setItem("books", JSON.stringify(books));
+        if (book.read === "No") {
+          readNode.textContent = "Read";
+          book.read = "Yes";
+          readNode.style.color = '#5bc359';
+          localStorage.setItem("books", JSON.stringify(books));
         } else {
-        readNode.innerHTML = "Read? No😢";
-        book.read = "No";
-        localStorage.setItem("books", JSON.stringify(books));
+          readNode.textContent = "Not Read";
+          book.read = "No";
+          readNode.style.color = '#f24b4b';
+          localStorage.setItem("books", JSON.stringify(books));
         }
     });
 
@@ -98,7 +97,7 @@ function addBook(i) {
 function getBooks() {
     books.forEach(function (book, i) {
         let bookNode = document.createElement("div");
-        bookNode.classList.add("book-item");
+        bookNode.classList.add("book");
         bookNode.setAttribute("data-index", `${i}`);
     
         const title = document.getElementById("popupTitle").value;
@@ -115,47 +114,53 @@ function getBooks() {
     
         const read = document.getElementById("popupRead").value;
         let readNode = document.createElement("p");
-        if (book.read == true) {
+        if (book.read == "Yes") {
             readText = 'Read'
             readColor = '#5bc359';
         } else {
-            readText = 'Not read'
+            readText = 'Not Read'
             readColor = '#f24b4b';
         }
-        readNode.innerHTML = `${readText}`;
+        readNode.textContent = `${readText}`;
         readNode.style.color = `${readColor}`;
   
+        let buttonsNode = document.createElement('div');
+        buttonsNode.classList = "book-buttons";
+
         let updateNode = document.createElement("button");
-        updateNode.classList = "markAsRead";
-        updateNode.innerHTML = `Update <i class="fas fa-pen"></i>`;
+        updateNode.classList = "markReadButton";
+        updateNode.innerHTML = `Update`;
 
         let trashNode = document.createElement("button");
-        trashNode.classList = "deleteBook";
+        trashNode.classList = "deleteButton";
         trashNode.innerHTML = `Delete`;
 
         bookNode.appendChild(titleNode);
         bookNode.appendChild(authorNode);
         bookNode.appendChild(pageNode);
         bookNode.appendChild(readNode);
-        bookNode.appendChild(updateNode);
-        bookNode.appendChild(trashNode);
+        bookNode.appendChild(buttonsNode);
+        buttonsNode.appendChild(updateNode);
+        buttonsNode.appendChild(trashNode);
         libraryContainer.appendChild(bookNode);
     
         // update book status
         updateNode.addEventListener("click", () => {
-        if (readNode.innerHTML === "Read? No😢") {
-            readNode.innerHTML = "Read? Yes😃";
-            book.read = "Yes";
-            localStorage.setItem("books", JSON.stringify(books));
-        } else {
-            readNode.innerHTML = "Read? No😢";
-            book.read = "No";
-            localStorage.setItem("books", JSON.stringify(books));
-        }
+            if (book.read === "No") {
+              readNode.textContent = "Read";
+              book.read = "Yes";
+              readNode.style.color = '#5bc359';
+              localStorage.setItem("books", JSON.stringify(books));
+            } else {
+              readNode.textContent = "Not Read";
+              book.read = "No";
+              readNode.style.color = '#f24b4b';
+              localStorage.setItem("books", JSON.stringify(books));
+            }
         });
         // delete book
         trashNode.addEventListener("click", () => {
-        bookshelf.removeChild(bookNode);
+        libraryContainer.removeChild(bookNode);
         books.splice(bookNode, 1);
         localStorage.setItem("books", JSON.stringify(books));
         });
