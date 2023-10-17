@@ -121,20 +121,20 @@ button:hover {
 
 .book > * {
     margin: 0;
-    line-height: 1.2rem;
+    line-height: 1.5rem;
     text-align: center;
 }
 
 .book h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .book p {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .book button {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .book-buttons {

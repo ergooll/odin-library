@@ -25,7 +25,7 @@ function addBook(i) {
 
     const title = document.getElementById('popupTitle').value;
     let titleNode = document.createElement('h3');
-    titleNode.innerHTML = `Title: ${title}`;
+    titleNode.innerHTML = `${title}`;
 
     const author = document.getElementById("popupAuthor").value;
     let authorNode = document.createElement("p");
@@ -37,7 +37,7 @@ function addBook(i) {
 
     const read = document.getElementById("popupRead").value;
     let readNode = document.createElement("p");
-    if (book.read == "Yes") {
+    if (this.read == "Yes") {
         readText = 'Read'
         readColor = '#5bc359';
     } else {
@@ -102,7 +102,7 @@ function getBooks() {
     
         const title = document.getElementById("popupTitle").value;
         let titleNode = document.createElement("h3");
-        titleNode.innerHTML = `Title: ${book.title}`;
+        titleNode.innerHTML = `${book.title}`;
     
         const author = document.getElementById("popupAuthor").value;
         let authorNode = document.createElement("p");
