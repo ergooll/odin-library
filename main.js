@@ -45,7 +45,15 @@ function addBook(i) {
 
     const read = document.getElementById("popupRead").value;
     let readNode = document.createElement("p");
-    readNode.innerHTML = `Read? ${read}${read === "Yes" ? "😃" : "😢"}`;
+    if (book.read == true) {
+        readText = 'Read'
+        readColor = '#5bc359';
+    } else {
+        readText = 'Not read'
+        readColor = '#f24b4b';
+    }
+    readNode.innerHTML = `${readText}`;
+    readNode.style.color = `${readColor}`;
 
     let updateNode = document.createElement('button');
     updateNode.classList = 'markAsRead';
@@ -107,9 +115,15 @@ function getBooks() {
     
         const read = document.getElementById("popupRead").value;
         let readNode = document.createElement("p");
-        readNode.innerHTML = `Read? ${book.read}${
-            book.read === "Yes" ? "😃" : "😢"
-        }`;
+        if (book.read == true) {
+            readText = 'Read'
+            readColor = '#5bc359';
+        } else {
+            readText = 'Not read'
+            readColor = '#f24b4b';
+        }
+        readNode.innerHTML = `${readText}`;
+        readNode.style.color = `${readColor}`;
   
         let updateNode = document.createElement("button");
         updateNode.classList = "markAsRead";
@@ -117,7 +131,7 @@ function getBooks() {
 
         let trashNode = document.createElement("button");
         trashNode.classList = "deleteBook";
-        trashNode.innerHTML = `Delete <i class="fas fa-trash-alt">`;
+        trashNode.innerHTML = `Delete`;
 
         bookNode.appendChild(titleNode);
         bookNode.appendChild(authorNode);
