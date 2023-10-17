@@ -105,7 +105,7 @@ button:hover {
     gap: 2rem;
 }
 
-.book-item {
+.book {
     padding: 1rem 2rem;
     line-height: 1.5rem;
     /* background-color: #d373341e; */
@@ -119,16 +119,25 @@ button:hover {
     height: 180px;
 }
 
-.book-item > * {
+.book > * {
     margin: 0;
+    line-height: 1.5rem;
     text-align: center;
 }
 
-.book-item button {
-    font-size: 0.7rem;
+.book h3 {
+    font-size: 1.5rem;
 }
 
-.book-item-buttons {
+.book p {
+    font-size: 1rem;
+}
+
+.book button {
+    font-size: 0.9rem;
+}
+
+.book-buttons {
     display: flex;
 }
 
